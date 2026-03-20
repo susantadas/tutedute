@@ -20,12 +20,22 @@
 <body>
     <h2>Add To-Do Item</h2>
     <form action="/submittodoitem" method="POST">
-        <label>Item Name:</label><br>
-        <input type="text" name="itemName" required><br><br>
-        <label>Item Description:</label><br>
-        <textarea name="itemDescription" required></textarea><br><br>
+        <label>Item ID:</label><br>
+        <input type="text" name="itemId" required><br><br>
         <button type="submit">Submit</button>
     </form>
+
 </body>
+<script>
+    function generateUUID() {
+        return crypto.randomUUID();
+    }
+    function generateHash(text) {
+        return btoa(text); // simple base64 (demo only)
+    }
+    window.onload = function () {
+        document.getElementsByName("itemUUID")[0].value = generateUUID();
+    };
+</script>
 
 </html>
